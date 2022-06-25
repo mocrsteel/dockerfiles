@@ -25,7 +25,8 @@ RUN . $HOME/.cargo/env && \
 USER root
 
 FROM rust as build
-RUN mkdir /home/dev/workspace
+RUN mkdir /home/dev/workspace && \
+  chown -hR dev /home/dev/workspace
 
 USER dev
 WORKDIR /home/dev/workspace
